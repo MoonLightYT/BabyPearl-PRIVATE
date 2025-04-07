@@ -1,11 +1,3 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("TheSouthGoat-PRIVATE", "Default")
 local tab = DrRayLibrary.newTab("Main", "ImageIdHere")
-
-tab.newToggle("Destroy AD portal", "Destroys the dumb portal (Obliterate that son of a bitch)", true, function(toggleState)
-    if toggleState then
-        print("On")
-    else
-        print("Off")
-    end
-end)

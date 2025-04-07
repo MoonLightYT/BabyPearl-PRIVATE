@@ -1,3 +1,11 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("TheSouthGoat", "Default")
 local tab = DrRayLibrary.newTab("Auto Grind", "ImageIdHere")
+
+tab.newToggle("Auto Weight", "Toggle! (prints the state)", true, function(toggleState)
+    if toggleState then
+        print("On")
+    else
+        print("Off")
+    end
+end)

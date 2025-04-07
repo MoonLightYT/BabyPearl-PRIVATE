@@ -1,75 +1,11 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("TheSouthGoat", "Default")
-local tab = window:newTab("Main", "ImageIdHere")
+local window = DrRayLibrary:Load("TheSouthGoat-PRIVATE", "Default")
+local tab = DrRayLibrary.newTab("Main", "ImageIdHere")
 
-Tabs.Main:AddToggle("DestroyAdPortal", {
-    Title = "Destroy AD portal",
-    Description = "This destroys the annoying ad portal",
-    Default = false,
-    Callback = function(state)
-        if state then
-            print("Ad portal toggle ON")
-            local part = workspace:FindFirstChild("RobloxForwardPortals")
-            if part then
-                part:Destroy()
-                print("Ad portal destroyed.")
-            else
-                print("No ad portal found.")
-            end
-        else
-            print("Ad portal toggle OFF")
-        end
-    end
-})
-
-Tabs.Main:AddToggle("AntiAFK", {
-    Title = "Anti AFK",
-    Description = "Prevents the game from kicking you for being idle",
-    Default = false,
-    Callback = function(state)
-        if state then
-            print("Anti AFK ON")
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/evxncodes/mainroblox/main/anti-afk", true))()
-        else
-            print("Anti AFK OFF")
-        end
-    end
-})
-
-Tabs.Main:AddToggle("AntiAFK", {
-    Title = "Anti AFK",
-    Description = "Prevents the game from kicking you for being idle",
-    Default = false,
-    Callback = function(state)
-        if state then
-            print("Anti AFK ON")
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/evxncodes/mainroblox/main/anti-afk", true))()
-        else
-            print("Anti AFK OFF")
-        end
-    end
-})
-
--- Anti Lag Toggle
-local isAntiLagEnabled = false
-local function setAntiLag(value)
-    isAntiLagEnabled = value
-    if isAntiLagEnabled then
-        print("Anti-Lag Enabled")
-        -- Add the functionality for Anti-Lag here
-        -- Example: Lowering graphics or disabling some features
+tab.newToggle("Destroy AD portal", "Destroys the dumb portal (Obliterate that son of a bitch)", true, function(toggleState)
+    if toggleState then
+        print("On")
     else
-        print("Anti-Lag Disabled")
-        -- Revert Anti-Lag functionality here
+        print("Off")
     end
-end
-
-Tabs.Main:AddToggle("AntiLag", {
-    Title = "Anti Lag",
-    Description = "This prevents your game from lagging.",
-    Default = false,
-    Callback = function(state)
-        setAntiLag(state)
-    end
-})
-
+end)

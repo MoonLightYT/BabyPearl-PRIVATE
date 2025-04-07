@@ -1,23 +1,24 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("TheSouthGoat", "Default")
-local tab = window:newTab("Auto Grind", "ImageIdHere")
+local tab = window:newTab("Main", "ImageIdHere")
 
-tab.newToggle("Auto Weight", "AUTO WEIGHT (Works for any tool or machine!!! [Except Punch)", true, function(toggleState)
-    if toggleState then
-        print("On")
-    else
-        print("Off")
-    end
-end)
-
-tab.newToggle("Auto Lift", "Automatically perform lifting action.", false, function(state)
-    local autoRepToggle = state
-    if state then
-        task.spawn(function()
-            while autoRepToggle do
-                game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent"):FireServer("rep")
-                task.wait(0.1)
+Tabs.Main:AddToggle("DestroyAdPortal", {
+    Title = "Destroy AD portal",
+    Description = "This destroys the annoying ad portal",
+    Default = false,
+    Callback = function(state)
+        if state then
+            print("Ad portal toggle ON")
+            local part = workspace:FindFirstChild("RobloxForwardPortals")
+            if part then
+                part:Destroy()
+                print("Ad portal destroyed.")
+            else
+                print("No ad portal found.")
             end
-        end)
+        else
+            print("Ad portal toggle OFF")
+        end
     end
-end)
+})
+

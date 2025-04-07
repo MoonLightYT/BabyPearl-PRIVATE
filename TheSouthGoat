@@ -2,10 +2,27 @@ local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 local window = DrRayLibrary:Load("TheSouthGoat", "Default")
 local tab = DrRayLibrary.newTab("Auto Grind", "ImageIdHere")
 
-tab.newToggle("Auto Weight", "Toggle! (prints the state)", true, function(toggleState)
+tab.newToggle("Auto Weight", "AUTO WEIGHT (Works for any tool or machine!!! [Except Punch)", true, function(toggleState)
     if toggleState then
         print("On")
     else
         print("Off")
     end
 end)
+
+Tabs.Auto Grind:AddToggle("Auto Lift", {
+    Title = "Auto Lift",
+    Description = "Automatically perform lifting action.",
+    Default = false,
+    Callback = function(state)
+        local autoRepToggle = state
+        if state then
+            task.spawn(function()
+                while autoRepToggle do
+                    game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent"):FireServer("rep")
+                    task.wait(0.1)
+                end
+            end)
+        end
+    end
+})

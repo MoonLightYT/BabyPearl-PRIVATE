@@ -1,3 +1,35 @@
+-- Whitelist for specific usernames 
+local whitelistedUsers = {
+    "XxmanticoreYT",  -- Authorized user
+    "Daisypearl274", -- You can add more usernames here
+}
+
+-- Function to check if player is whitelisted
+local function isWhitelisted(username)
+    for _, whitelisted in ipairs(whitelistedUsers) do
+        if username == whitelisted then
+            return true
+        end
+    end
+    return false
+end
+
+-- Get the local player's username
+local player = game.Players.LocalPlayer
+local username = player.Name
+
+-- Kick the player if they are not whitelisted
+if not isWhitelisted(username) then
+    player:Kick("Only for BabyPearl lil bro")
+    return
+else
+    -- If needed, you can add further actions here for whitelisted users
+    print(username .. " is whitelisted.") -- Optional: log the whitelisted player
+end
+
+
+
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "BabyPearls Script",

@@ -8,3 +8,22 @@ tab.newToggle("Destroy AD portal", "Toggle! (prints the state)", true, function(
         print("Off")
     end
 end)
+Tabs.Main:Destroy AD Portal("DestroyAdPortal", {
+    Title = "Destroy AD portal",
+    Description = "This destroys the annoying ad portal",
+    Default = false,
+    Callback = function(state)
+        if state then
+            print("Ad portal toggle ON")
+            local part = workspace:FindFirstChild("RobloxForwardPortals")
+            if part then
+                part:Destroy()
+                print("Ad portal destroyed.")
+            else
+                print("No ad portal found.")
+            end
+        else
+            print("Ad portal toggle OFF")
+        end
+    end
+})

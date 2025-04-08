@@ -1,8 +1,8 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "BabyPearls Script",
-   Icon = badge-check, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "By Godlike [Owner of MoonHub",
+   Icon = "0", -- Icon in Topbar. Use a string for Lucide Icons or a Roblox Image ID (number).
+   LoadingTitle = "By Godlike [Owner of MoonHub]",
    LoadingSubtitle = "Private script",
    Theme = "Serenity", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
@@ -21,7 +21,7 @@ local Window = Rayfield:CreateWindow({
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 
-   KeySystem = True, -- Set this to true to use our key system
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "TheGate!!!!",
       Subtitle = "Made by MoonHub Owner",
@@ -33,6 +33,4 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Main", "robot")
-{
-
+local Tab = Window:CreateTab("Main", "robot") -- Correctly calling CreateTab method

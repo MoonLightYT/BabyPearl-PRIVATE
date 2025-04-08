@@ -2,13 +2,6 @@ local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 local window = DrRayLibrary:Load("TheSouthGoat-PRIVATE", "Default")
 local tab = window.newTab("Main", "ImageIdHere")  -- Fixed to correctly access the tab
 
-tab.newToggle("Destroy AD portal", "Toggle! (prints the state)", true, function(toggleState)
-    if toggleState then
-        print("On")
-    else
-        print("Off")
-    end
-end)
 
 -- Correcting the method to create a toggle for destroying the ad portal.
 tab.newToggle("Destroy AD Portal", "This destroys the annoying ad portal", false, function(state)
